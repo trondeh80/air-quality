@@ -1,0 +1,37 @@
+---
+  kind: Deployment
+  apiVersion: extensions/v1beta1
+  metadata:
+    name: frontend
+  spec:
+    replicas: 1
+    revisionHistoryLimit : 0
+    template:
+      metadata:
+        labels:
+          component: frontend
+      spec:
+        containers:
+        - name: frontend
+          image: eu.gcr.io/oval-day-94120/airquality_airnode
+          imagePullPolicy: Always
+          env:
+          - name: NODE_ENV
+            value: production
+          ports:
+          - containerPort: 3000
+        nodeSelector:
+            cloud.google.com/gke-nodepool: pool-1
+---
+  kind: Service
+  apiVersion: v1
+  metadata:
+    name: frontend-http-service
+  spec:
+    type: LoadBalancer
+    selector:
+      run: frontend
+    ports:
+      - port: 80
+        targetPort: 3000
+        protocol: TCP
