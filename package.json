@@ -1,13 +1,13 @@
 {
   "name": "air-quality",
   "version": "1.0.0",
-  "description": "",
+  "description": "A small web app to visualize air pollution.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "watch": "webpack-dev-server --open --mode development",
-    "server": "node ./index.js",
+    "start": "node ./index.js",
     "lint": "eslint src/**.js"
   },
   "dependencies": {
@@ -47,6 +47,9 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9"
   },
-  "author": "",
+  "engines": {
+    "node": "10.4.1"
+  },
+  "author": "Trond Erling Hundal",
   "license": "ISC"
 }
