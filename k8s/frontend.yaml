@@ -13,7 +13,7 @@
       spec:
         containers:
         - name: frontend
-          image: eu.gcr.io/oval-day-94120/airquality_airnode
+          image: eu.gcr.io/oval-day-94120/airquality_airnode:latest
           imagePullPolicy: Always
           env:
           - name: NODE_ENV
