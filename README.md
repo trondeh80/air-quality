@@ -2,7 +2,17 @@
 
 This is a tiny web application displaying air-quality in norway.
 
-Application is built using docker and kubernetes hosted on Google Cloud.
+The application is hosted on Heroku.
+
+--
+
+To run locally:
+- run "npm install"
+- run "npm run start"
+
+The application will start an express server listening on port 3000.
+
+Application can be built using docker and kubernetes hosted on Google Cloud.
 
 >
 

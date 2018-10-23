@@ -10,10 +10,10 @@ console.log('Booting server');
 app.listen(PORT, onListen).on('error', onError);
 
 function onListen() {
-    console.log(`Server running on ${PORT}`);
+  console.log(`Server running on ${PORT}`);
 }
 
 function onError(err) {
-    console.error('Failed to start application');
-    console.error(err);
+  console.error('Failed to start application');
+  console.error(err);
 }
