@@ -4,7 +4,12 @@ import {
   INITIALIZE_DATA_RESOLVED,
   SET_MUNICIPALITY,
   SET_ZONE,
-  SET_STATION
+  SET_STATION,
+  STATION_DATA_RESOLVED,
+  START_POSITIONING,
+  POSITION_RESOLVED,
+  START_FETCH_LOCAL_DATA,
+  LOCAL_DATA_RESOLVED
 } from '../actions';
 
 function optionsReducer(state = {}, action) {
@@ -41,7 +46,41 @@ function optionsReducer(state = {}, action) {
     case SET_STATION:
       return {
         ...state,
-        selectedStation: action.station
+        selectedStation: action.station,
+        isFetchingData: true
+      };
+
+    case STATION_DATA_RESOLVED:
+      return {
+        ...state,
+        stationData: action.data,
+        isFetchingData: false
+      };
+
+    case START_POSITIONING:
+      return {
+        ...state,
+        isFetchingPosition: true
+      };
+
+    case POSITION_RESOLVED:
+      return {
+        ...state,
+        isFetchingPosition: false,
+        position: action.position
+      };
+
+    case START_FETCH_LOCAL_DATA:
+      return {
+        ...state,
+        isFetchingLocalData: true
+      };
+
+    case LOCAL_DATA_RESOLVED:
+      return {
+        ...state,
+        isFetchingLocalData: false,
+        localData: action.data
       };
 
     default:

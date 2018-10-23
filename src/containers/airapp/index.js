@@ -1,36 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../../components/header/index';
-import ChartList from '../../components/chart-list/index';
-import BarChart from '../../components/bar-chart/index';
-import { fetchInitData } from '../../actions';
+import ChartList from '../chart-list/index';
+import { fetchInitData, fetchUserPosition } from '../../actions';
 
 class AirApp extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     const { props } = this;
     props.fetchInitData();
+    props.fetchUserPosition();
   }
 
   render() {
+    const { isLoading } = this.props;
     return (
       <div className="outer-container">
         <Header />
-        <ChartList />
+        <div className="container">
+          {
+            isLoading && <div className="loading">Laster data...</div>
+          }
+          <ChartList />
+        </div>
       </div>
     );
   }
 }
 
-const mapPropsToState = store => ({
-  newState: store
+const mapPropsToState = state => ({
+  isLoading: state.options.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchInitData: () => dispatch(fetchInitData())
+  fetchInitData: () => dispatch(fetchInitData()),
+  fetchUserPosition: () => dispatch(fetchUserPosition())
 });
 
 export default connect(mapPropsToState, mapDispatchToProps)(AirApp);
