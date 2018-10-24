@@ -1,0 +1,42 @@
+.menu {
+  position: relative;
+
+  .btn-wrap button .on {
+    display: none;
+  }
+
+  .btn-wrap button .off {
+    display: block;
+  }
+
+  .controls-wrap {
+    display: none;
+  }
+
+  &.open {
+    display: block;
+
+    .btn-wrap button .on {
+      display: block;
+    }
+
+    .btn-wrap button .off {
+      display: none;
+    }
+
+    .controls-wrap {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 39px;
+      z-index: 100;
+      padding: 25px;
+      background: #fff;
+      border: solid 1px #fafafa;
+
+      -webkit-box-shadow: 0 0 39px 0 rgba(0,0,0,0.32);
+      -moz-box-shadow: 0 0 39px 0 rgba(0,0,0,0.32);
+      box-shadow: 0 0 39px 0 rgba(0,0,0,0.32);
+    }
+  }
+}
