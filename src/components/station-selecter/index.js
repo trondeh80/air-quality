@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Dropdown from '../dropdown';
-import { selectStation } from '../../actions';
+import { selectStation } from '../../dispatchers';
 
 class StationSelecter extends Component {
   constructor(props) {

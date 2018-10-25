@@ -13,24 +13,6 @@ header {
     border: solid 1px #fafafa;
     border-radius: 10px;
   }
-
-  .controls {
-    padding: 10px;
-    background: white;
-    display: flex;
-    //display: flex;
-    flex-direction: row;
-
-    .header-control select {
-      min-width: 200px;
-    }
-
-    .header-control:not(:last-child) {
-      margin-right: 10px;
-    }
-  }
-
-
 }
 
 

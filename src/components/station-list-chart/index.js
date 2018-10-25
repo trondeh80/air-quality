@@ -1,7 +1,7 @@
 import React from 'react';
 import BarChart from '../chart';
 
-function getChartData(localData) {
+function getChartData(stationList) {
   return {
     chart: {
       type: 'column'
@@ -11,10 +11,10 @@ function getChartData(localData) {
     },
     type: 'bar',
     series: [{
-      data: localData.map(station => ({ y: station.value, name: station.station, color: `#${station.color}` }))
+      data: stationList.map(station => ({ y: station.value, name: station.station, color: `#${station.color}` }))
     }],
     xAxis: {
-      categories: localData.map(station => station.station)
+      categories: stationList.map(station => station.station)
     },
     legend: {
       enabled: false

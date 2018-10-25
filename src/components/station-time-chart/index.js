@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'date-fns/parse';
 import BarChart from '../chart';
 import { norDate } from '../../helpers/dates';
 
@@ -10,7 +11,7 @@ function getStationOptions(stationData) {
     },
     series: [{
       data: firstItem.values.map(measurement => ({
-        name: norDate(new Date(measurement.fromTime)),
+        name: norDate(parse(measurement.fromTime)),
         y: measurement.value,
         color: `#${measurement.color}`
       }))
@@ -19,7 +20,7 @@ function getStationOptions(stationData) {
       enabled: false
     },
     xAxis: {
-      categories: firstItem.values.map(measurement => norDate(new Date(measurement.fromTime)))
+      categories: firstItem.values.map(measurement => norDate(parse(measurement.fromTime)))
     }
   };
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../../components/header/index';
 import ChartList from '../chart-list/index';
-import { fetchInitData, fetchUserPosition } from '../../actions';
+import { fetchInitData, fetchUserPosition } from '../../dispatchers';
 
 class AirApp extends Component {
   componentDidMount() {
