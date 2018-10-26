@@ -9,7 +9,7 @@ import {
   START_POSITIONING,
   POSITION_RESOLVED,
   START_FETCH_LOCAL_DATA,
-  LOCAL_DATA_RESOLVED
+  LOCAL_DATA_RESOLVED, SET_FROM_DATE, SET_TO_DATE
 } from '../actions';
 
 function optionsReducer(state = {}, action) {
@@ -81,6 +81,18 @@ function optionsReducer(state = {}, action) {
         ...state,
         isFetchingLocalData: false,
         localData: action.data
+      };
+
+    case SET_FROM_DATE:
+      return {
+        ...state,
+        fromDate: action.date
+      };
+
+    case SET_TO_DATE:
+      return {
+        ...state,
+        toDate: action.date
       };
 
     default:

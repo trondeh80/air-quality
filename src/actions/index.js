@@ -1,13 +1,3 @@
-import {
-  API_AREAS,
-  API_STATIONS,
-  API_RADIUS,
-  API_STATION_HISTORY,
-  DEFAULT_RADIUS,
-} from '../constants';
-import getJson from '../helpers/get-json';
-import formatDate, { getUTC } from '../helpers/dates';
-
 export const INITIALIZE_DATA = 'INITIALIZE_DATA';
 export const INITIALIZE_DATA_RESOLVED = 'INITIALIZE_DATA_RESOLVED';
 export const SET_ZONE = 'SET_AREA';
@@ -18,6 +8,8 @@ export const START_POSITIONING = 'START_POSITIONING';
 export const POSITION_RESOLVED = 'POSITION_RESOLVED';
 export const START_FETCH_LOCAL_DATA = 'START_FETCH_LOCAL_DATA';
 export const LOCAL_DATA_RESOLVED = 'LOCAL_DATA_RESOLVED';
+export const SET_FROM_DATE = 'SET_FROM_DATE';
+export const SET_TO_DATE = 'SET_TO_DATE';
 
 export function initializeData() {
   return {

@@ -33,12 +33,12 @@ function fetchDataForPosition(position) {
   };
 }
 
-export function selectStation(station) {
+export function selectStation(station,
+  fromDate = subHours(new Date(), 24 * 7),
+  toDate = new Date()) {
   return (dispatch) => {
     dispatch(startSetStation(station));
-    const today = new Date();
-    const lastWeek = subHours(today, 24 * 7);
-    return getJson(`${API_STATION_HISTORY}/${formatDate(lastWeek)}/${formatDate(today)}/${station.station}?components=pm10`)
+    return getJson(`${API_STATION_HISTORY}/${formatDate(fromDate)}/${formatDate(toDate)}/${station.station}?components=pm10`)
       .then(data => dispatch(stationDataResolved(data)));
   };
 }
